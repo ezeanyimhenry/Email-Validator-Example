@@ -1,0 +1,59 @@
+{
+    "packages": [
+        {
+            "name": "ezeanyimhenry/email-validator",
+            "version": "1.1.0",
+            "version_normalized": "1.1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ezeanyimhenry/Email-Validator.git",
+                "reference": "ceadd2920ec1b75e4a0a1eb0ef00f3bec4597e93"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ezeanyimhenry/Email-Validator/zipball/ceadd2920ec1b75e4a0a1eb0ef00f3bec4597e93",
+                "reference": "ceadd2920ec1b75e4a0a1eb0ef00f3bec4597e93",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^9.0"
+            },
+            "time": "2024-10-20T12:32:51+00:00",
+            "type": "library",
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "EzeanyimHenry\\EmailValidator\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Henry Ezeanyim",
+                    "email": "henry@oracus.ng"
+                }
+            ],
+            "description": "A PHP package for validating email addresses with detailed checks including MX records, disposable, and banned email lists.",
+            "homepage": "https://github.com/ezeanyimhenry/email-validator",
+            "keywords": [
+                "composer",
+                "email",
+                "php",
+                "validation"
+            ],
+            "support": {
+                "issues": "https://github.com/ezeanyimhenry/Email-Validator/issues",
+                "source": "https://github.com/ezeanyimhenry/Email-Validator/tree/v1.1.0"
+            },
+            "install-path": "../ezeanyimhenry/email-validator"
+        }
+    ],
+    "dev": true,
+    "dev-package-names": []
+}
