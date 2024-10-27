@@ -13,21 +13,31 @@ class HomeController
 
     public function validateEmail()
     {
-        $email = $_POST['email'] ?? '';
+        $emailsInput = $_POST['emails'] ?? [];
+        $emails = array_map('trim', explode(',', $emailsInput));
+
+        //adding config is optional
+        $config = [
+            'checkMxRecords' => true,
+            'checkBannedListedEmail' => true,
+            'checkDisposableEmail' => true,
+            'checkFreeEmail' => false,
+        ];
 
         // Instantiate the EmailValidator
-        $validator = new EmailValidator();
+        $validator = new EmailValidator($config);
 
         // Validate the email
-        $result = $validator->validate($email);
+        $results = $validator->validate($emails);
 
-        // Check if the email is valid
-        if ($result['isValid']) {
-            $_SESSION['status'] = 'success';
-            $_SESSION['message'] = "The email '$email' is valid.";
-        } else {
-            $_SESSION['status'] = 'error';
-            $_SESSION['message'] = $result['message'];
+        // Prepare results in session for display on result page
+        $_SESSION['email_validation_results'] = []; // Initialize results array in session
+        foreach ($results as $email => $result) {
+            $_SESSION['email_validation_results'][] = [
+                'email' => $email,
+                'status' => $result['isValid'] ? 'success' : 'error',
+                'message' => $result['isValid'] ? "The email '$email' is valid." : "'$email' - ".$result['message']
+            ];
         }
 
         // Redirect to the result page to display the validation result

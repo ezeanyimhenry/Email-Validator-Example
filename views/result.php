@@ -16,10 +16,11 @@
                         <h2>Validation Result</h2>
                     </div>
                     <div class="card-body">
-                        <?php if (isset($_SESSION['status'])) {
-                            echo '<div class="alert alert-' . ($_SESSION['status'] === 'success' ? 'success' : 'danger') . '">' . $_SESSION['message'] . '</div>';
-                            unset($_SESSION['status']);
-                            unset($_SESSION['message']); 
+                        <?php if (isset($_SESSION['email_validation_results'])) {
+                            foreach ($_SESSION['email_validation_results'] as $result) {
+                                echo '<div class="alert alert-' . ($result['status'] === 'success' ? 'success' : 'danger') . '">' . $result['message'] . '</div>';
+                            }
+                            unset($_SESSION['email_validation_results']);
                         } else {
                             echo '<div class="alert alert-warning">No validation result to show.</div>';
                         }
